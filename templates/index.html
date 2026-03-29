@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resource Compass | Find The Best Study Resources</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <header class="hero">
+    <p class="badge">Student-first discovery</p>
+    <h1>Stop wasting hours. Find the <span>best</span> topic resources.</h1>
+    <p class="subtitle">
+      Search quality videos, blogs, and Reddit recommendations in one place.
+      Then ask the built-in AI coach what to study next.
+    </p>
+
+    <form id="search-form" class="search-panel">
+      <div class="field-group">
+        <label for="topic">What topic are you learning?</label>
+        <input id="topic" name="topic" placeholder="e.g. Dynamic Programming" required />
+      </div>
+
+      <div class="field-row">
+        <div class="field-group">
+          <label for="resource-type">Resource format</label>
+          <select id="resource-type" name="resourceType">
+            <option value="all">All formats</option>
+            <option value="video">Video only</option>
+            <option value="blog">Blog only</option>
+          </select>
+        </div>
+
+        <button type="submit" id="search-btn">Find Resources</button>
+      </div>
+    </form>
+  </header>
+
+  <main class="layout">
+    <section>
+      <div class="section-head">
+        <h2>Top Resources</h2>
+        <p id="result-meta">Search a topic to get started.</p>
+      </div>
+      <div id="results" class="results-grid"></div>
+    </section>
+
+    <aside class="coach-panel">
+      <h3>AI Study Coach</h3>
+      <p>Ask for a roadmap, best sequence, or what to skip.</p>
+
+      <div id="chat-log" class="chat-log"></div>
+
+      <form id="chat-form" class="chat-form">
+        <textarea id="chat-input" rows="3" placeholder="How should I learn this in 7 days?" required></textarea>
+        <button type="submit" id="chat-btn">Ask Coach</button>
+      </form>
+    </aside>
+  </main>
+
+  <template id="resource-template">
+    <article class="card">
+      <div class="pill-row">
+        <span class="pill source"></span>
+        <span class="pill format"></span>
+        <span class="pill score"></span>
+      </div>
+      <h4 class="title"></h4>
+      <p class="snippet"></p>
+      <div class="card-footer">
+        <span class="domain"></span>
+        <a class="visit" target="_blank" rel="noopener noreferrer">Open</a>
+      </div>
+    </article>
+  </template>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
